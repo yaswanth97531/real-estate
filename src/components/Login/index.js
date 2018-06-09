@@ -14,13 +14,44 @@ class Login extends Component {
   constructor(props) {
     super(props);
     //defining the state to the component
+    console.log("In constructor method");
     this.state = {
       username: "",
       password: ""
     };
   }
 
+  static getDerivedStateFromProps() {
+    console.log("In Get Derived State From Props");
+  }
+
+  // this life cycle methid is called when before the compoent is rendered.
+  UNSAFE_componentWillMount() {
+    console.log("In component will mount");
+  }
+
+  componentDidMount() {
+    console.log("In component did mount");
+  }
+
+  shouldComponentUpdate() {
+    console.log("In should component update");
+  }
+
+  UNSAFE_componentWillUpdate() {
+    console.log("In component will update");
+  }
+
+  getSnapshotBeforeUpdate() {
+    console.log("In Get snapshot before update");
+  }
+
+  componentDidUpdate() {
+    console.log("Component did update");
+  }
+
   UNSAFE_componentWillReceiveProps(nextProps) {
+    console.log("In component will receive props");
     console.log("props", this.props);
     console.log("Next props", nextProps);
     if (nextProps.isUserLoggedIn) {
@@ -39,6 +70,7 @@ class Login extends Component {
   };
 
   render() {
+    console.log("In render method");
     const { classes } = this.props;
 
     return (
